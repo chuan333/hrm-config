@@ -1,0 +1,26 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: zuul-gateway
+zuul:
+  routes:
+    myUser.serviceId: hrm-management #这是调用满足条件的服务名，注意要小写
+    myUser.path: /management/** #这是所有路径前的通配
+  ignored-services: "*" #用*来通配符，忽略从9527端口通过服务名来调用
+  prefix: "/services" #这是所有路径的前缀
+  #访问地址如下：http://localhost:9527/services/user/provider/user/3
+  retryable: true #是否重试
+ribbon:
+  ConnectTimeout: 250 # 连接超时时间(ms)
+  ReadTimeout: 2000 # 通信超时时间(ms)
+  OkToRetryOnAllOperations: true # 是否对所有操作重试
+  MaxAutoRetriesNextServer: 2 # 同一服务不同实例的重试次数
+  MaxAutoRetries: 1 # 同一实例的重试次数
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillisecond: 3000 # 熔断超时时长：3000ms

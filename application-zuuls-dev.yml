@@ -5,7 +5,7 @@ spring:
     name: zuul-gateway
 zuul:
   routes:
-    sysmanage.serviceId: hrm-sysmanage # 服务名
+    sysmanage.serviceId: hrm-management # 服务名
     sysmanage.path: /management/** # 把myUser打头的所有请求都转发给user-provider
     course.serviceId: hrm-course # 服务名
     course.path: /course/** # 把myUser打头的所有请求都转发给user-provider

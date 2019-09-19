@@ -14,7 +14,7 @@ zuul:
     redis.serviceId: hrm-redis # 服务名
     redis.path: /redis/** # 把myUser打头的所有请求都转发给user-provider
     page.serviceId: hrm-page # 服务名
-    page.path: /page/** # 把myUser打头的所有请求都转发给user-provider
+    page.path: /pages/** # 把myUser打头的所有请求都转发给user-provider
     pageAgent.serviceId: hrm-page-agent # 服务名
     pageAgent.path: /pageAgent/** # 把myUser打头的所有请求都转发给user-provider
     user.serviceId: hrm-user # 服务名
